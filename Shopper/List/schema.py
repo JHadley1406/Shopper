@@ -9,7 +9,7 @@ class ItemType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    item = graphene.Field(ItemType)
+    item = graphene.Field(ItemType, id=graphene.Int(), name=graphene.String(), quantity=graphene.Int())
     all_items = graphene.List(ItemType)
 
     def resolve_all_items(self, info, **kwargs):
@@ -29,7 +29,7 @@ class ItemCreation(graphene.Mutation):
         name = graphene.String(required=True)
         id = graphene.ID()
 
-    item = graphene.Field(ItemType)
+    item = graphene.Field(ItemType, id=graphene.Int(), name=graphene.String(), quantity=graphene.Int())
 
     def mutate(self, info, **kwargs):
         item = Item.objects.create(name=kwargs.get('name'), quantity=kwargs.get('quantity'))
