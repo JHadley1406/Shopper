@@ -51,9 +51,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-GRAPHENE = {
-    'SCHEMA': 'Shopper.schema.schema',
-}
+# We can register the schema here, or in urls.py
+#GRAPHENE = {
+#    'SCHEMA': 'Shopper.schema.schema',
+#}
 
 ROOT_URLCONF = 'Shopper.urls'
 
