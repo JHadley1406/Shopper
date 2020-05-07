@@ -9,8 +9,8 @@ class ItemType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    item = graphene.Field(ItemType, id=graphene.Int(), name=graphene.String(), quantity=graphene.Int())
-    all_items = graphene.List(ItemType, id=graphene.Int(), name=graphene.String(), quantity=graphene.Int())
+    item = graphene.Field(ItemType, id=graphene.Int())
+    all_items = graphene.List(ItemType)
 
     def resolve_all_items(self, info, **kwargs):
         return Item.objects.all()
